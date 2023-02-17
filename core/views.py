@@ -7,15 +7,48 @@ from django.contrib import messages
 from datetime import datetime, timedelta, date
 from django.http.response import Http404, JsonResponse
 
+
 # def index(request):
 #     return redirect('/agenda/')
 
 def login_user(request):
-    return render(request, 'login.html')
+    if request.user.is_authenticated:
+        return redirect('/agenda') #se estiver autenticado ele vai pra página principal
+    return render(request, 'pages/login.html') #se não estiver autenticado ele renderiza a tela de login
+
+def register_user(request):
+    if request.user.is_authenticated:
+        return redirect('/agenda')  # se estiver autenticado ele vai pra página principal
+    return render(request, 'pages/cadastro.html')
+
+# @require_POST
+# def submit_register(request):
+#     # exit('aqui')
+#     try:
+#         if request.method == 'POST':
+#         email = User.objects.get(email=request.POST['email'])
+#         username = User.objects.get(email=request.POST['usuario'])
+#         if email:
+#             return render(request, 'cadastro.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
+#
+#         if User.objects.filter(username=username).first():
+#             messages.error(request, "This username is already taken")
+#         return redirect('/')
+#
+#     except User.DoesNotExist:
+#
+#         username = request.POST['usuario']
+#         email = request.POST['email']
+#         senha = request.POST['senha']
+#
+#         novoUsuario = User.objects.create_user(username=username, email=email, password=senha)
+#         novoUsuario.save()
 
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+
 def submit_login(request):
     if request.POST:
         username = request.POST.get('username')
@@ -28,22 +61,26 @@ def submit_login(request):
         else:
             messages.error(request, "Usuario ou senha inválido")
     return redirect('/')
-@login_required(login_url='/login/') #se não estiver autenticado não irá abrir a página da agenda e s erá levado até a página de autenticar.
+
+
+@login_required(login_url='/login/')  # se não estiver autenticado não irá abrir a página da agenda e s erá levado até a página de autenticar.
 def lista_eventos(request):
     usuario = request.user
     data_atual = datetime.now() - timedelta(hours=1)
     evento = Evento.objects.filter(usuario=usuario,
                                    data_evento__gt=data_atual)
-    dados ={'eventos': evento}
-    return render(request, 'agenda.html', dados)
+    dados = {'eventos': evento}
+    return render(request, 'pages/agenda.html', dados)
+
 
 @login_required(login_url='/login/')
 def evento(request):
     id_evento = request.GET.get('id')
     dados = {}
     if id_evento:
-        dados['evento'] = Evento.objects.get(id=id_evento )
-    return render(request, 'evento.html', dados)
+        dados['evento'] = Evento.objects.get(id=id_evento)
+    return render(request, 'pages/evento.html', dados)
+
 
 @login_required(login_url='/login/')
 def submit_evento(request):
@@ -71,13 +108,14 @@ def submit_evento(request):
                                   usuario=usuario)
     return redirect('/')
 
+
 @login_required(login_url='/login/')
 def delete_evento(request, id_evento):
     usuario = request.user
     try:
         evento = Evento.objects.get(id=id_evento)
-    #essa validação serve para que cada usuario exclua apenas o evento próprio. Se por acaso tentarem exluir o evento pela url, será feito:
-    #O ID do evento perteece ao usuario logado? se não pertence, não consegue excluir
+    # essa validação serve para que cada usuario exclua apenas o evento próprio. Se por acaso tentarem exluir o evento pela url, será feito:
+    # O ID do evento perteece ao usuario logado? se não pertence, não consegue excluir
     except Exception:
         raise Http404()
     if usuario == evento.usuario:
@@ -86,8 +124,10 @@ def delete_evento(request, id_evento):
         raise Http404()
     return redirect('/')
 
-#@login_required(login_url='/login/')
+
+# @login_required(login_url='/login/')
 def json_lista_evento(request, id_usuario):
     usuario = User.objects.get(id=id_usuario)
     evento = Evento.objects.filter(usuario=usuario).values('id', 'titulo')
     return JsonResponse(list(evento), safe=False)
+

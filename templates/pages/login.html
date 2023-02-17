@@ -1,0 +1,20 @@
+
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h1>Organize</h1>
+    <h2>The right way to plan your day </h2>
+        <form action="submit" method="POST">{% csrf_token %}
+                <label>Usuario:</label>
+                <input type="text" name="username">
+                <label>Senha</label>
+                <input type="password" name="password">
+                <button type="submit" class="meu-botao">Entrar</button>
+        </form>
+
+    {% for message in messages %}
+        <div>
+            <strong>Erro! </strong>{{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}

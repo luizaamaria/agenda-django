@@ -1,5 +1,8 @@
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+
+from agenda import settings
 from core import views
 from django.views.generic import RedirectView
 
@@ -13,5 +16,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/agenda')),
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
-    path('logout/', views.logout_user)
-]
+    path('logout/', views.logout_user),
+    path('cadastro/', views.register_user),
+    # path('cadastro/submit', views.submit_register)
+] + static(settings.STATIC_URL)

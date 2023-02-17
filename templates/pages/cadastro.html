@@ -1,0 +1,29 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h1>Cadastro</h1>
+    <form action="submit" method="POST">{% csrf_token %}
+        <div align="center">
+          <div>
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="usuario">
+          </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+           </div>
+          <div>
+                <label for="pass">Senha (8 caracteres no minimo):</label>
+                <input type="password" id="pass" name="senha"
+                       minlength="8" required>
+          </div>
+                <button type="submit">Cadastrar</button>
+      </div>
+    </form>
+
+    {% for message in messages %}
+        <div align="center">
+            <strong>Erro! </strong>{{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
