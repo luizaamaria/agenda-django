@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+
+font{
+    font-family: Helvetica Neue, Arial, sans-serif;
+
+}
+body {
+    background-color: #030027;
+    /*background-image: linear-gradient(to right, #30bcb7, #8bd7d5);*/
+}
+
 label {
     display: block;
     font: 0.9rem 'Fira Sans', sans-serif;
@@ -5,5 +16,48 @@ label {
 
 input[type='submit'],
 label {
-    margin-top: 1rem; !important;
+    margin-top: 1rem;
+}
+
+.titulo{
+    /*justify-content: space-around;*/
+    /*!*margin-top: 5rem;*!*/
+    /*margin-left: 2rem;*/
+    /*line-height: normal;*/
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.titulo h1 {
+    color: #C16E70;
+    margin-top: 34px;
+    font-weight: bold;
+
+}
+
+.titulo h2 {
+    color: #DC9E82;
+    margin-bottom: -0.5rem;
+    font-weight: bold;
+
+}
+
+.formulario-login {
+    color: #151E3F;
+    max-width: 85%;
+    display: inline-table;
+    background-color: #DC9E82;
+    padding: 7% 7% 7%;
+    border-radius: 20px;
+    box-shadow: 0 1px 10px #000;
+}
+
+input{
+    max-width: 350px;
+}
+
+footer{
+    margin: initial;
+    bottom: 0;
+    display: block;
+    background-color: #DC9E82; !important;
 }

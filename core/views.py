@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from agenda.forms import CreateUserForm
 from core.models import Evento
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from datetime import datetime, timedelta, date
 from django.http.response import Http404, JsonResponse
+
 
 
 # def index(request):
@@ -16,10 +18,24 @@ def login_user(request):
         return redirect('/agenda') #se estiver autenticado ele vai pra página principal
     return render(request, 'pages/login.html') #se não estiver autenticado ele renderiza a tela de login
 
+
 def register_user(request):
-    if request.user.is_authenticated:
-        return redirect('/agenda')  # se estiver autenticado ele vai pra página principal
-    return render(request, 'pages/cadastro.html')
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/login')
+
+    context = {'form': form}
+    return render(request, 'pages/cadastro.html', context)
+
+
+# def register_user(request):
+#     if request.user.is_authenticated:
+#         return redirect('/agenda')  # se estiver autenticado ele vai pra página principal
+#     return render(request, 'pages/cadastro.html')
 
 # @require_POST
 # def submit_register(request):
@@ -90,22 +106,23 @@ def submit_evento(request):
         descricao = request.POST.get('descricao')
         usuario = request.user
         id_evento = request.POST.get('id_evento')
-        if id_evento:
-            evento = Evento.objects.get(id=id_evento)
-            if evento.usuario == usuario:
-                evento.titulo = titulo
-                evento.descricao = descricao
-                evento.data_evento = data_evento
-                evento.save()
-
-            # Evento.objects.filter(id=id_evento).update(titulo=titulo,
-            #                                            data_evento=data_evento,
-            #                                            descricao=descricao)
-        else:
-            Evento.objects.create(titulo=titulo,
-                                  data_evento=data_evento,
-                                  descricao=descricao,
-                                  usuario=usuario)
+        print(str(data_evento))
+        # if id_evento:
+        #     evento = Evento.objects.get(id=id_evento)
+        #     if evento.usuario == usuario:
+        #         evento.titulo = titulo
+        #         evento.descricao = descricao
+        #         evento.data_evento = data_evento
+        #         evento.save()
+        #
+        #     # Evento.objects.filter(id=id_evento).update(titulo=titulo,
+        #     #                                            data_evento=data_evento,
+        #     #                                            descricao=descricao)
+        # else:
+        #     Evento.objects.create(titulo=titulo,
+        #                           data_evento=data_evento,
+        #                           descricao=descricao,
+        #                           usuario=usuario)
     return redirect('/')
 
 
