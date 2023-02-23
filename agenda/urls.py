@@ -18,5 +18,4 @@ urlpatterns = [
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user),
     path('cadastro/', views.register_user),
-    # path('cadastro/submit', views.submit_register)
 ] + static(settings.STATIC_URL)

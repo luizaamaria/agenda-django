@@ -31,35 +31,6 @@ def register_user(request):
     context = {'form': form}
     return render(request, 'pages/cadastro.html', context)
 
-
-# def register_user(request):
-#     if request.user.is_authenticated:
-#         return redirect('/agenda')  # se estiver autenticado ele vai pra página principal
-#     return render(request, 'pages/cadastro.html')
-
-# @require_POST
-# def submit_register(request):
-#     # exit('aqui')
-#     try:
-#         if request.method == 'POST':
-#         email = User.objects.get(email=request.POST['email'])
-#         username = User.objects.get(email=request.POST['usuario'])
-#         if email:
-#             return render(request, 'cadastro.html', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
-#
-#         if User.objects.filter(username=username).first():
-#             messages.error(request, "This username is already taken")
-#         return redirect('/')
-#
-#     except User.DoesNotExist:
-#
-#         username = request.POST['usuario']
-#         email = request.POST['email']
-#         senha = request.POST['senha']
-#
-#         novoUsuario = User.objects.create_user(username=username, email=email, password=senha)
-#         novoUsuario.save()
-
 def logout_user(request):
     logout(request)
     return redirect('/')
@@ -106,23 +77,22 @@ def submit_evento(request):
         descricao = request.POST.get('descricao')
         usuario = request.user
         id_evento = request.POST.get('id_evento')
-        print(str(data_evento))
-        # if id_evento:
-        #     evento = Evento.objects.get(id=id_evento)
-        #     if evento.usuario == usuario:
-        #         evento.titulo = titulo
-        #         evento.descricao = descricao
-        #         evento.data_evento = data_evento
-        #         evento.save()
-        #
-        #     # Evento.objects.filter(id=id_evento).update(titulo=titulo,
-        #     #                                            data_evento=data_evento,
-        #     #                                            descricao=descricao)
-        # else:
-        #     Evento.objects.create(titulo=titulo,
-        #                           data_evento=data_evento,
-        #                           descricao=descricao,
-        #                           usuario=usuario)
+        if id_evento:
+            evento = Evento.objects.get(id=id_evento)
+            if evento.usuario == usuario:
+                evento.titulo = titulo
+                evento.descricao = descricao
+                evento.data_evento = data_evento
+                evento.save()
+
+            # Evento.objects.filter(id=id_evento).update(titulo=titulo,
+            #                                            data_evento=data_evento,
+            #                                            descricao=descricao)
+        else:
+            Evento.objects.create(titulo=titulo,
+                                  data_evento=data_evento,
+                                  descricao=descricao,
+                                  usuario=usuario)
     return redirect('/')
 
 
