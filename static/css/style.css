@@ -39,7 +39,6 @@ label {
     color: #DC9E82;
     margin-bottom: -0.5rem;
     font-weight: bold;
-
 }
 
 .formulario-login {
@@ -111,7 +110,6 @@ img {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: bold;
 }
 
 #container {
@@ -149,7 +147,7 @@ img {
 #form_header h1::before{
     content: '';
     width: 40%;
-    background-color: var(--color-light-50);
+    /*background-color: var(--color-light-50);*/
     height: 3px;
     bottom: 10px;
     border-radius: 5px;
@@ -208,7 +206,6 @@ img {
     padding: 7px;
     font-size: 18px;
     border-radius: 3px;
-    font-weight: bold;
     cursor: pointer;
 }
 
@@ -216,49 +213,95 @@ img {
     transform: scale(1.05);
 }
 
+/*footer*/
+
+.footer-info {
+    justify-content: space-between;
+    text-align: center;
+    display: flex !important;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list .footer-link {
+    color: var(--color-blue-100);
+    transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+    color: var(--color-rose-100);
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+footer {
+    background-color: var(--color-rose-50);
+    color: #030027; !important;
+}
+
+#footer-social-media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+#footer-social-media .footer-link {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+}
+
+#footer-social-media .footer-link:hover {
+    opacity: 0.8;
+}
+
+#footer-social-media .footer-link i {
+    font-size:  1.25rem;
+}
+
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#linkedin {
+    background-color: #0A66C2;
+}
+
+#git {
+    background-color: #161B22;
+}
 
 
+#footer-logo {
+    font-size: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    color: var(--color-blue-100);
+}
 
+.footer-contato h4 {
+    font-size: 1.10rem;
+    color: var(--color-blue-100);
+}
 
+.footer-contato {
+    margin-bottom: 1.25rem;
+}
 
+.footer-info h3 {
+    font-weight: bold;
+}
 
-
-
-
-/*#footer_subscribe {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    gap: 1.5rem;*/
-/*}*/
-
-/*#footer_subscribe p {*/
-/*    color: white;*/
-/*}*/
-
-/*#input_group {*/
-/*    align-items: center;*/
-/*    background-color: #DC9E82;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*#input_group input {*/
-/*    all: unset;*/
-/*    background-color: white;*/
-/*    padding: 0.75rem;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*#input_group button {*/
-/*    background-color: #030027;*/
-/*    border: none;*/
-/*    padding: 0px 1.25rem;*/
-/*    font-size: 1.125rem;*/
-/*    height: 100%;*/
-/*    border-radius: 0px 4px 4px 0px;*/
-/*    cursor: pointer;*/
-/*    transition: all 0.4s;*/
-/*}*/
-
-/*#input_group button:hover {*/
-/*    opacity: 0.8;*/
-/*}*/
+.footer-info p {
+     color: var(--color-blue-100);
+}

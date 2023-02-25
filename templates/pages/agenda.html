@@ -1,21 +1,29 @@
     {% extends "model-page.html" %}
 
     {% block content %}
-        <h2>Agendamentos</h2>
-        <a href="evento/">
-            <button type="button">Novo Evento</button>
-        </a>
-        <ul style="font-size: 18px">
-            {% for evento in eventos %}
-                <li>
-                    <div style={% if evento.get_evento_atrasado %}
-                                "color: red"
-                                {% endif %}>
-                        {{ evento.titulo }} - {{ evento.get_data_evento }}
-                        ( <a href="evento/?id={{ evento.id }}">Editar</a>
-                        / <a href="evento/delete/{{ evento.id }}/"> Excluir </a> )
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="container vh-100">
+        <div class="col-md-12">
+            <div class="col-md-12 mt-5" style="display: flex; justify-content: space-around; background-color: #C16E70; border-radius: 5px;">
+                <h2>Agendamentos</h2>
+                <a href="evento/">
+                    <button type="button">Novo Evento</button>
+                </a>
+                <ul style="font-size: 18px">
+                    {% for evento in eventos %}
+                        <li>
+                            <div style={% if evento.get_evento_atrasado %}
+                                        "color: red"
+                                        {% endif %}>
+                                {{ evento.titulo }} - {{ evento.get_data_evento }}
+                                ( <a href="evento/?id={{ evento.id }}"
+                                     class="btn btn-outline-secondary btn-sm">Editar</a>
+                                / <a href="evento/delete/{{ evento.id }}/"> Excluir </a> )
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
     {% endblock %}

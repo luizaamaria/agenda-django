@@ -62,9 +62,14 @@
                 Cadastra-se
             </button>
 
+<!--            redirecionando para a tela de login        -->
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Tem uma conta? <a href="/login/" class="ml-2"> Faça login</a>
+                </div>
+            </div>
 
 <!--            <input type="submit" name="Create User">-->
-
             <hr>
             {% for key, value in form.errors.items %}
             <div class="alert alert-warning alert-dismissible fade show " role="alert">
