@@ -2,27 +2,79 @@
 
 {% block content %}
 
-<h2>Evento</h2>
+<!--    <main id="container-add-event">-->
+<!--        <form id="form-add-event" method="POST">-->
+<!--        {% csrf_token %}-->
+<!--            <div id="event-header">-->
+<!--                <h1>Adicione um novo evento </h1>-->
+<!--            </div>-->
 
-<form action="submit" method="post">{% csrf_token %}
-    <label>Titulo</label>
-    <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
-    <br>
-    <input type="text" name="titulo" size="23" value="{{ evento.titulo }}">
-    <br>
-    <label>Data do evento:</label>
-    <br>
-    <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}">
-    <br>
-    <label>Descrição</label>
-    <br>
-    <textarea name="descricao" rows="5" cols="23">{{ evento.descricao }}</textarea>
-    <br><br>
-    <button type="submit">Salvar</button>
-    <a href="/">
-        <button type="button">Cancelar</button>
-    </a>
-</form>
+<!--            <div class="input-box mb-4">-->
+<!--                <label class="form-label">Titulo</label>-->
+<!--                <input type="number" name="id_evento" value="{{ evento.id }}" hidden>-->
+<!--                <input type="text" name="titulo" class="form-control" value="{{ evento.titulo }}">-->
+<!--                <div id="event-titulo" class="form-text"></div>-->
+<!--            </div>-->
 
+<!--             <div class="input-box mb-3">-->
+<!--                <label class="form-label">Data do evento</label>-->
+<!--                 <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}">-->
+<!--                    <div id="date-event" cla>-->
+<!--                    </div>-->
+<!--            </div>-->
+
+<!--            <div class="input-box">-->
+<!--                <label for="descricao">-->
+<!--                    Descrição-->
+<!--                    <div class="input-field">-->
+<!--                        <textarea name="descricao" rows="5" cols="23">{{ evento.descricao }}</textarea>-->
+<!--                    </div>-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--             <button type="submit" id="add-event-button">-->
+<!--                Salvar-->
+<!--            </button>-->
+
+<!--        </form>-->
+<!--    </main>-->
+
+<main id="container-event">
+    <form id="form-add-event" action="submit" method="post">
+        {% csrf_token %}
+        <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
+
+        <div id="event-header">
+            <h1>Adicione um novo evento </h1>
+        </div>
+
+        <div class="input-box mb-4">
+        <label class="form-label">Titulo</label>
+            <input type="text" name="titulo" size="23"
+                   value="{{ evento.titulo }}" class="form-control">
+            <div id="event-titulo" class="form-text"></div>
+        </div>
+
+        <div class="input-box mb-4">
+        <label class="form-label">Data do evento:</label>
+            <input type="datetime-local" name="data_evento"
+               value="{{ evento.get_data_input_evento }}" class="form-control">
+            <div id="date-event" class="form-text"></div>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Descrição</label>
+            <textarea name="descricao" rows="5" cols="20" class="form-control">{{ evento.descricao }}</textarea>
+            <div id="description-event" class="form-text"></div>
+        </div>
+
+        <div class="footer-event">
+            <button type="submit" id="add-event-button" >Salvar</button>
+            <a href="/">
+            <button type="button" id="cancel-event-button">Cancelar</button>
+            </a>
+        </div>
+    </form>
+</main>
 
 {% endblock %}
