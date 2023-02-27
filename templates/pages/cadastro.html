@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <main id="container">
+   <main id="container">
         <form id="cadastro_form" method="POST">
         {% csrf_token %}
 <!--        {{form.as_div}}-->
@@ -15,38 +15,64 @@
 <!--            </div>-->
 
             <div class="input-box">
-                <label for="name">
-                    Usuário
+                <label for="name">Usuário </label>
                     <div class="input-field">
                         <i class="fa-solid fa-user"></i>
 <!--                            <input type="text" id="name" name="name">-->
                         {{form.username}}
                     </div>
-                </label>
             </div>
 
+<!--            <div class=" input-box mb-4">-->
+<!--                <i class="fa-solid fa-user"></i>-->
+<!--                    Usuário-->
+<!--                <label for="Input-Email1" class="form-label"></label>-->
+<!--                <input name="username" type="text" class="form-control" id="Input-Email1" aria-describedby="emailHelp">-->
+<!--                <div id="emailHelp" class="form-text"></div>-->
+<!--            </div>-->
+
+<!--            <div class="input-box mb-4">-->
+<!--                <i class="fa-solid fa-envelope"></i>-->
+<!--                    Endereço de e-mail-->
+<!--                <label for="Input-Email" class="form-label"></label>-->
+<!--                <input name="email" type="text" class="form-control" id="Input-Email" aria-describedby="email-Help">-->
+<!--                <div id="email-Help" class="form-text"></div>-->
+<!--            </div>-->
             <div class="input-box">
-                <label for="email">
-                    Endereço de e-mail
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
+                <label for="email">Endereço de e-mail</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
 <!--                        <input type="email" id="email" name="email">-->
-                        {{form.email}}
-                    </div>
-                </label>
+                    {{form.email}}
+                </div>
             </div>
+
+
+<!--            <div class="input-box mb-4">-->
+<!--                <i class="fa-solid fa-key"></i>-->
+<!--                     Senha-->
+<!--&lt;!&ndash;                <div class="input-field">&ndash;&gt;-->
+<!--                <label for="inputPassword" class="form-label"></label>-->
+<!--                <input name="password1" type="password" class="form-control" id="inputPassword">-->
+<!--                    <div id="senha1-Help" class="form-password"></div>-->
+<!--            </div>-->
 
             <div class="input-box">
-                <label for="password1">
-                    Senha
-                    <div class="input-field">
-                        <i class="fa-solid fa-key"></i>
+                <label for="password1">Senha</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-key"></i>
 <!--                        <input type="password" id="password1" name="password1">-->
-                        {{form.password1}}
-                    </div>
-                </label>
+                    {{form.password1}}
+                </div>
             </div>
 
+<!--            <div class="input-box mb-4">-->
+<!--                <i class="fa-solid fa-key"></i>-->
+<!--                Confirmação de senha-->
+<!--                <label for="InputPassword2" class="form-label"></label>-->
+<!--                <input name="password2" type="password" class="form-control" id="InputPassword2">-->
+<!--                <div id="senha2-help" class="form-password"></div>-->
+<!--            </div>-->
             <div class="input-box">
                 <label for="password2">
                     Confirmação de senha
@@ -78,7 +104,6 @@
             {% endfor %}
         </form>
     </main>
-
 
 <!--    {% for message in messages %}-->
 <!--        <div align="center">-->

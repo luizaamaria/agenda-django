@@ -22,6 +22,10 @@ body {
     /*padding-top: px;*/
 }
 
+.login-container {
+    background-color: var(--color-blue-100);
+}
+
 label {
     display: block;
 }
@@ -49,6 +53,11 @@ label {
     margin-top: 34px;
     font-weight: bold;
 
+}
+
+.alert-dismissible {
+    font-size: 14px;
+    padding: 2%;
 }
 
 .titulo h2 {
@@ -188,13 +197,13 @@ img {
     color: var(--color-light-50);
 }
 
+
 .input-field input {
     border: none;
     background-color: transparent;
     width: 260px;
     font-size: 18px;
     padding: 0px 5px;
-
 }
 
 .input-field input:focus {
@@ -420,9 +429,6 @@ footer {
     font-size: 1.1rem;
 }
 
-.container-agenda {
-    /*width: 100%;*/
-}
 #div-cards {
     padding: 5%;
 }
@@ -431,6 +437,23 @@ footer {
     padding: 1.0rem;
 }
 
+.btn-submit {
+    border: none;
+    background: var(--color-blue);
+    color: var(--color-light-50);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 12%;
+    cursor: pointer;
+}
+
+/*.card-header {*/
+/*    !*background-color: var(--color-blue);*!*/
+/*    background: linear-gradient(to right, #DC9E82, #C16E70, #151E3F);*/
+/*    color: var(--color-light-50);*/
+/*    font-weight: bold;*/
+
+/*}*/
 /*.div-card {*/
 /*    height: 100vh;*/
 /*}*/
