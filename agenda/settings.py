@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,8 @@ SECRET_KEY = 'django-insecure-&+d=edzjr)_o5xei#imid*aa^v47jjtj3=k@0c=zg6nn+1p^dz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# qualquer endereço de hosts será aceito
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -116,6 +118,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+# reconhece todos os arquivos estáticos do django admin
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# aqui ele reconhece os arquivos estáticos do meu projeto
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
