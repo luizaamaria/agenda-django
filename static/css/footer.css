@@ -1,0 +1,98 @@
+.footer-principal {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-azul-300);
+}
+
+#footer-logo {
+    font-size: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-info h3 {
+    font-weight: bold;
+}
+
+.footer-info p {
+     color: ;
+}
+.footer-info {
+    justify-content: space-between;
+    text-align: center;
+    display: flex !important;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list .footer-link {
+    color: ;
+    transition: all 0.4s;
+}
+
+.footer-list .footer-link:hover {
+    color: ;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.footer-contato h4 {
+    font-size: 1.10rem;
+    color: ;
+}
+
+.footer-contato {
+    margin-bottom: 1.25rem;
+}
+
+#footer-social-media {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+#footer-social-media .footer-link {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+    color: ;
+}
+
+#footer-social-media .footer-link:hover {
+    opacity: 0.8;
+}
+
+#footer-social-media .footer-link i {
+    font-size:  1.25rem;
+}
+
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#linkedin {
+    background-color: #0A66C2;
+}
+
+#git {
+    background-color: #161B22;
+}
+
+.footer-dev {
+    text-align: center;
+    padding: 20px;
+}
+
+
+

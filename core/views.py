@@ -9,14 +9,13 @@ from datetime import datetime, timedelta, date
 from django.http.response import Http404, JsonResponse
 
 
-
 # def index(request):
 #     return redirect('/agenda/')
 
 def login_user(request):
     if request.user.is_authenticated:
-        return redirect('/agenda') #se estiver autenticado ele vai pra página principal
-    return render(request, 'pages/login.html') #se não estiver autenticado ele renderiza a tela de login
+        return redirect('/agenda')  # se estiver autenticado ele vai pra página principal
+    return render(request, 'pages/login.html')  # se não estiver autenticado ele renderiza a tela de login
 
 
 def register_user(request):
@@ -30,6 +29,7 @@ def register_user(request):
 
     context = {'form': form}
     return render(request, 'pages/cadastro.html', context)
+
 
 def logout_user(request):
     logout(request)
@@ -50,9 +50,9 @@ def submit_login(request):
     return redirect('/')
 
 
-@login_required(login_url='/login/')  # se não estiver autenticado não irá abrir a página da agenda e s erá levado até a página de autenticar.
+@login_required(
+    login_url='/login/')  # se não estiver autenticado não irá abrir a página da agenda e s erá levado até a página de autenticar.
 def lista_eventos(request):
-
     usuario = request.user
     data_atual = datetime.now() - timedelta(hours=1)
     evento = Evento.objects.filter(usuario=usuario,
@@ -119,4 +119,3 @@ def json_lista_evento(request, id_usuario):
     usuario = User.objects.get(id=id_usuario)
     evento = Evento.objects.filter(usuario=usuario).values('id', 'titulo')
     return JsonResponse(list(evento), safe=False)
-
