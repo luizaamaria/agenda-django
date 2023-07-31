@@ -1,12 +1,29 @@
+#div-cards {
+    padding: 5%;
+    font-weight: bold;
+
+}
+
+.div-card-agenda {
+    padding: 1.0rem;
+}
+
 .card-header {
-    background-color: var(--color-rosa-250);
+    background-color: var(--color-azul-400);
 }
 
 .card-body {
-    background-color: var(--color-rosa-250);
+    background-color: var(--color-azul-400);
 }
 
 .card-footer {
-    background-color: var(--color-rosa-250);
+    background-color: var(--color-azul-400);
 
+}
+
+.card-atrasado {
+    background-color: #ff0000;
+    color: white;
+    text-shadow: #410202 1px 0 1px;
+    font-weight: bold;
 }

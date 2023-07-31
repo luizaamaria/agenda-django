@@ -2,7 +2,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--color-azul-300);
+    background-color: var(--color-azul-400);
+    color: var(--color-light-0);
 }
 
 #footer-logo {
@@ -10,15 +11,18 @@
     margin: auto;
     display: flex;
     justify-content: space-around;
+    color: var(--color-rosa-250);
 }
 
 .footer-info h3 {
     font-weight: bold;
+    color: var(--color-rosa-100);
 }
 
 .footer-info p {
-     color: ;
+     color: var(--color-light-0) ;
 }
+
 .footer-info {
     justify-content: space-between;
     text-align: center;
@@ -30,12 +34,12 @@
 }
 
 .footer-list .footer-link {
-    color: ;
+    color: var(--color-light-0);
     transition: all 0.4s;
 }
 
 .footer-list .footer-link:hover {
-    color: ;
+    color: var(--color-rosa-100); ;
 }
 
 .footer-link {
@@ -44,7 +48,7 @@
 
 .footer-contato h4 {
     font-size: 1.10rem;
-    color: ;
+    color: var(--color-light-0) ;
 }
 
 .footer-contato {
@@ -66,7 +70,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.4s;
-    color: ;
+    color: var(--color-light-0) ;
 }
 
 #footer-social-media .footer-link:hover {

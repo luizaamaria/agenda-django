@@ -1,0 +1,50 @@
+.login-container {
+
+}
+
+.titulo h1 {
+    color: var(--color-azul-450);
+    margin-top: 34px;
+    font-weight: bold;
+
+}
+
+.titulo h2 {
+    color: var(--color-rosa-250);
+    margin-bottom: -0.5rem;
+    font-weight: bold;
+}
+
+.formulario-login {
+    color: var(--color-light-0);
+    max-width: 85%;
+    display: inline-table;
+    background-color: var(--color-azul-400);
+    padding: 7% 7% 7%;
+    border-radius: 20px;
+    box-shadow: 0 1px 10px #000;
+}
+
+input{
+    max-width: 350px;
+}
+
+.btn-submit {
+    border: none;
+    background: var(--color-rosa-250);
+    color: var(--color-light-0);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 12%;
+    cursor: pointer;
+}
+
+.d-flex {
+    justify-content: center; /* Centraliza os itens ao longo do eixo principal */
+}
+
+.link-cad {
+    color: var(--color-azul-450);
+    margin-left: 10px; /* Adiciona espaço de 10 pixels à esquerda do link */
+}
+

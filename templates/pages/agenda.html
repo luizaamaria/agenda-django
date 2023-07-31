@@ -7,18 +7,13 @@
 <div class="container mt-5 vh-100">
     <div class="div-card col-md-12">
         <div class="col-md-12" id="div-cards">
-            <h2>Agendamentos</h2>
-
-<!--            <ul style="font-size: 18px">-->
                 {% for evento in eventos %}
-
             <div class="div-card-agenda col-md-4">
                 <div class="card">
                     <div class="card-header {% if evento.get_evento_atrasado %}
                             card-atrasado
                             {% endif %}">
                         {{ evento.titulo }}
-
                     </div>
 
                     <div class="card-body">

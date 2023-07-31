@@ -1,9 +1,9 @@
 .logo-nav {
-    font-size: 1.75rem;
-}
+    font-size: 40px;
+    color: var(--color-rosa-250);}
 
 .nav-bar {
-    background-color: var(--color-azul-300) ;
+    background-color: var(--color-azul-400) ;
     box-shadow: 0px 3px 10px;
     color: white;
     display: flex;
@@ -11,11 +11,11 @@
     padding: 0.75rem 10rem;
 }
 
-
 .nav-list ul {
-     display: flex;
+    display: flex;
     justify-content: center;
     list-style: none;
+    font-weight: bold;
 }
 
 .nav-item {
@@ -25,6 +25,20 @@
 .nav-link {
     text-decoration: none;
     font-size: 1.15rem;
-    color: var(--color-light-50);
-    font-weight: 400;
+    color: var(--color-light-0);
+    font-weight: bold;
+}
+
+.logout-button button {
+    border: none;
+    background-color: var(--color-azul-200);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.logout-button button a {
+    text-decoration: none;
+    color: var(--color-light-0);
+    font-weight: bold;
+    font-size: 1.1rem;
 }

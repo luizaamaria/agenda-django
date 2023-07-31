@@ -1,91 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Agenda</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <link rel="stylesheet" href="{% static "css/footer.css" %}">
-    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
-    <link rel="stylesheet" href="{% static "css/card.css" %}">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+              integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="{% static "css/footer.css" %}">
+        <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+        <link rel="stylesheet" href="{% static "css/card.css" %}">
+        <link rel="stylesheet" href="{% static "css/addEvento.css" %}">
+        <link rel="stylesheet" href="{% static "css/login.css" %}">
+        <link rel="stylesheet" href="{% static "css/cadastro.css" %}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-{% if user.is_authenticated %}
 
-<nav class="nav-bar">
-    <div class="logo-nav">
-        <i class="fa-regular fa-calendar" id="logo-nav"></i>
-    </div>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    </head>
+    <body>
+    {% if user.is_authenticated %}
 
-    <div class="nav-list">
-        <ul>
-            <li class="nav-item"><a href="/" class="nav-link">Meus agendamentos</a></li>
-            <li class="nav-item"><a href="evento/" class="nav-link">Adicionar evento</a></li>
-        </ul>
-    </div>
+    <nav class="nav-bar">
+        <div class="logo-nav">
+            <i class="fa-regular fa-calendar" id="logo-nav"></i>
+        </div>
 
-    <div class="logout-button">
-        <button><a href="/logout">Sair</a></button>
-    </div>
+        <div class="nav-list">
+            <ul>
+                <li class="nav-item"><a href="/" class="nav-link">Meus agendamentos</a></li>
+                <li class="nav-item"><a href="evento/" class="nav-link">Adicionar evento</a></li>
+            </ul>
+        </div>
 
-<!--    <div class="mobile-menu-icon">-->
-<!--        <button>-->
-<!--            <i class="fa-solid fa-bars"></i></button>-->
-<!--    </div>-->
-</nav>
+        <div class="logout-button">
+            <button><a href="/logout">Sair</a></button>
+        </div>
+    </nav>
 
-<!--<div class="mobile-menu">-->
-<!--    <ul>-->
-<!--        <li class="nav-item"><a href="/" class="nav-link">Meus agendamentos</a></li>-->
-<!--        <li class="nav-item"><a href="evento/" class="nav-link">Adicionar evento</a></li>-->
-<!--    </ul>-->
-
-<!--    <div class="logout-button">-->
-<!--        <button><a href="/logout">Sair</a></button>-->
-<!--    </div>-->
-
-<!--</div>-->
-
-<!--        <nav class="navbar bg-body-tertiary fixed-top">-->
-<!--          <div class="container">-->
-<!--            <a class="navbar-brand" href="#">-->
-<!--                <i class="fa-regular fa-calendar" id="logo-nav"></i></a>-->
-<!--            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">-->
-<!--              <span class="navbar-toggler-icon"></span>-->
-<!--            </button>-->
-
-<!--            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">-->
-<!--              <div class="offcanvas-header">-->
-<!--                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegue por aqui!</h5>-->
-<!--                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
-<!--              </div>-->
-
-<!--              <div class="offcanvas-body">-->
-<!--                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">-->
-<!--                  <li class="nav-item">-->
-<!--                    <a class="nav-link active" aria-current="page" href="/">Home</a>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/logout">Sair</a>-->
-<!--                    </li>-->
-
-<!--                </ul>-->
-<!--&lt;!&ndash;                <form class="d-flex mt-3" role="search">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <button class="btn btn-outline-success" type="submit">Search</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                </form>&ndash;&gt;-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </nav>-->
 {% endif %}
 
 <!--    Inserir aqui o html da pagina de login-->
