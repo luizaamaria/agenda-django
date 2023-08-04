@@ -29,18 +29,23 @@ input{
     max-width: 350px;
 }
 
-.btn-submit {
+#login_button {
     border: none;
     background: var(--color-rosa-250);
     color: var(--color-light-0);
     padding: 7px;
     font-size: 18px;
-    border-radius: 12%;
+    border-radius: 6px;
     cursor: pointer;
+}
+
+#login_button:hover {
+    transform: scale(1.05);
 }
 
 .d-flex {
     justify-content: center; /* Centraliza os itens ao longo do eixo principal */
+    font-size: 14px;
 }
 
 .link-cad {

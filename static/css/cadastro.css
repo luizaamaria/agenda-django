@@ -50,6 +50,18 @@
 }
 
 
+.icon-user {
+    color: var(--color-azul-450);
+}
+
+.icon-email {
+    color: var(--color-azul-450);
+}
+
+.icon-senha {
+    color: var(--color-azul-450);
+}
+
 
 .input-field {
     display: flex;
@@ -65,26 +77,30 @@
     color: var(--color-rosa-250);
 }
 
-
-.input-field input {
-    border: none;
-    background-color: transparent;
-    width: 260px;
-    font-size: 18px;
-    padding: 0px 5px;
+.d-flex {
+    justify-content: center; /* Centraliza os itens ao longo do eixo principal */
 }
 
-.input-field input:focus {
+.link-login {
+    color: var(--color-azul-450);
+    margin-left: 10px;
+}
+
+.input-box input {
+    font-size: 18px;
+}
+
+.input-box input:focus {
     outline: none;
 }
 
 #cadastro_button {
     border: none;
-    background: var(--color-blue);
-    color: var(--color-light-50);
+    background: var(--color-rosa-250);
+    color: var(--color-light-0);
     padding: 7px;
     font-size: 18px;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
 }
 

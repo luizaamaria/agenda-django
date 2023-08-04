@@ -5,83 +5,41 @@
    <main id="container">
         <form id="cadastro_form" method="POST">
         {% csrf_token %}
-<!--        {{form.as_div}}-->
             <div id="form_header">
                 <h1>Cadastro</h1>
-                <i id="mode_icon" class="fa-solid fa-moon"></i>
-            </div>
-<!--            <div id="inputs">-->
-<!--                -->
-<!--            </div>-->
-
-            <div class="input-box">
-                <label for="name">Usuário </label>
-                    <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-<!--                            <input type="text" id="name" name="name">-->
-                        {{form.username}}
-                    </div>
             </div>
 
-<!--            <div class=" input-box mb-4">-->
-<!--                <i class="fa-solid fa-user"></i>-->
-<!--                    Usuário-->
-<!--                <label for="Input-Email1" class="form-label"></label>-->
-<!--                <input name="username" type="text" class="form-control" id="Input-Email1" aria-describedby="emailHelp">-->
-<!--                <div id="emailHelp" class="form-text"></div>-->
-<!--            </div>-->
+            <div class=" input-box">
+                <i class="fa-solid fa-user icon-user"></i>
+                    Usuário
+                <label for="Input-Email1" class="form-label"></label>
+                <input name="username" type="text" class="form-control" id="Input-Email1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text"></div>
+            </div>
 
-<!--            <div class="input-box mb-4">-->
-<!--                <i class="fa-solid fa-envelope"></i>-->
-<!--                    Endereço de e-mail-->
-<!--                <label for="Input-Email" class="form-label"></label>-->
-<!--                <input name="email" type="text" class="form-control" id="Input-Email" aria-describedby="email-Help">-->
-<!--                <div id="email-Help" class="form-text"></div>-->
-<!--            </div>-->
-            <div class="input-box">
-                <label for="email">Endereço de e-mail</label>
-                <div class="input-field">
-                    <i class="fa-solid fa-envelope"></i>
-<!--                        <input type="email" id="email" name="email">-->
-                    {{form.email}}
-                </div>
+            <div class="input-box mb-4">
+                <i class="fa-solid fa-envelope icon-email"></i>
+                    Endereço de e-mail
+                <label for="Input-Email" class="form-label"></label>
+                <input name="email" type="text" class="form-control" id="Input-Email" aria-describedby="email-Help">
+                <div id="email-Help" class="form-text"></div>
             </div>
 
 
-<!--            <div class="input-box mb-4">-->
-<!--                <i class="fa-solid fa-key"></i>-->
-<!--                     Senha-->
-<!--&lt;!&ndash;                <div class="input-field">&ndash;&gt;-->
-<!--                <label for="inputPassword" class="form-label"></label>-->
-<!--                <input name="password1" type="password" class="form-control" id="inputPassword">-->
-<!--                    <div id="senha1-Help" class="form-password"></div>-->
-<!--            </div>-->
-
-            <div class="input-box">
-                <label for="password1">Senha</label>
-                <div class="input-field">
-                    <i class="fa-solid fa-key"></i>
-<!--                        <input type="password" id="password1" name="password1">-->
-                    {{form.password1}}
-                </div>
+            <div class="input-box mb-4">
+                <i class="fa-solid fa-key icon-senha"></i>
+                     Senha
+                <label for="inputPassword" class="form-label"></label>
+                <input name="password1" type="password" class="form-control" id="inputPassword">
+                    <div id="senha1-Help" class="form-password"></div>
             </div>
 
-<!--            <div class="input-box mb-4">-->
-<!--                <i class="fa-solid fa-key"></i>-->
-<!--                Confirmação de senha-->
-<!--                <label for="InputPassword2" class="form-label"></label>-->
-<!--                <input name="password2" type="password" class="form-control" id="InputPassword2">-->
-<!--                <div id="senha2-help" class="form-password"></div>-->
-<!--            </div>-->
-            <div class="input-box">
-                <label for="password2">
-                    Confirmação de senha
-                    <div class="input-field">
-                        <i class="fa-solid fa-key"></i>
-<!--                        <input type="password" id="password2" name="password2">-->
-                        {{form.password2}}
-                    </div>
-                </label>
+            <div class="input-box mb-4">
+                <i class="fa-solid fa-key icon-senha"></i>
+                Confirmação de senha
+                <label for="InputPassword2" class="form-label"></label>
+                <input name="password2" type="password" class="form-control" id="InputPassword2">
+                <div id="senha2-help" class="form-password"></div>
             </div>
 
             <button type="submit" id="cadastro_button">
@@ -90,12 +48,11 @@
 
 <!--            redirecionando para a tela de login        -->
             <div class="mt-4">
-                <div class="d-flex justify-content-center links">
-                    Tem uma conta? <a href="/login/" class="ml-2"> Faça login</a>
+                <div class="d-flex justify-content-center">
+                    Tem uma conta? <a href="/login/" class="link-login"> Faça login</a>
                 </div>
             </div>
 
-<!--            <input type="submit" name="Create User">-->
             <hr>
             {% for key, value in form.errors.items %}
             <div class="alert alert-warning alert-dismissible fade show " role="alert">
